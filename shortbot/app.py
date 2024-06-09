@@ -7,7 +7,8 @@ from pytesseract import Output
 
 
 def take_screenshot():
-    subprocess.run(["scrot", "screenshot.png"])
+    screenshot_cmd = "grim screenshot.png"
+    subprocess.run(screenshot_cmd, shell=True)
 
 
 def perform_ocr():
@@ -23,9 +24,14 @@ def on_key_press(event, x, y):
 def create_overlay(ocr_data):
     root = Tk()
     root.attributes("-fullscreen", True)
-    root.attributes("-alpha", 0.3)
-    canvas = Canvas(root, bg="black")
+    root.attributes("-topmost", True)
+    root.attributes("-alpha", 0.3)  # Set the transparency of the window
+    # root.wm_attributes('-alpha', 0.3)  # Set the transparency of the window
+
+    canvas = Canvas(root)
     canvas.pack(fill="both", expand=True)
+    # canvas.pack(fill='both', expand=True)
+    # canvas.create_window(0, 0)
 
     n_boxes = len(ocr_data["level"])
     for i in range(n_boxes):

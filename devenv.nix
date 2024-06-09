@@ -23,6 +23,10 @@ in {
     pkgs.scrot
     pkgs.tk
     pkgs.python311Packages.tkinter
+    pkgs.tesseract
+    pkgs.python311Packages.pytesseract
+    pkgs.grim
+    pkgs.slurp
     pkgs.just
     treefmtWrapper
   ];
