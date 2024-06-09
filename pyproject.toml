@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "shortbot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "shortbot"}]
+
+[tool.poetry.scripts]
+# command_name = module_for_handler : function_for_handler
+shortbot = 'shortbot.app:main'
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytesseract = "^0.3.10"
+opencv-python = "^4.10.0.82"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
